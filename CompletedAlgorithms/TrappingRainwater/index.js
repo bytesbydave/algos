@@ -24,7 +24,6 @@
 // Go all the way up until you reach the current height
 
 const trappingRainwaterBruteForce = (heights) => {
-  const maxHeight = Math.max(...heights);
   let totalWater = 0;
   for (let i = 0; i < heights.length; i++) {
     let pLeft = i;
@@ -50,16 +49,38 @@ const trappingRainwaterBruteForce = (heights) => {
 // Time Complexity is O(N^2) becuase of whiles inside of a for loop
 // Space Complexity is O(1)
 
+// 1. Identify between the left and the right pointer to see which one has the lesser value
+// 2. Is this pointer value greater than or equal to the max on that side
+//    If Yes -> update the max on that side
+//    If No -> get water for pointer value and add to total
+// 3. Move pointer Inwards
+// 4. Repeat for the other pointer
+
 const trappingRainwater = (heights) => {
-  let totalWater = 0;
+  let left = 0;
+  let right = heights.length - 1;
   let maxLeft = 0;
   let maxRight = 0;
-  let pLeft = 0;
-  let pRight = heights.length - 1;
-  while (pLeft <= pRight) {
-    
+  let total = 0;
+
+  while (left < right) {
+    if (heights[left] <= heights[right]) {
+      if (heights[left] >= maxLeft) {
+        maxLeft = heights[left];
+      } else {
+        total += maxLeft - heights[left];
+      }
+      left++;
+    } else {
+      if (heights[right] >= maxRight) {
+        maxRight = heights[right];
+      } else {
+        total += maxRight - heights[right ];
+      }
+      right--;
+    }
   }
-  return totalWater;
+  return total;
 };
 
 module.exports = trappingRainwater;
