@@ -76,4 +76,7 @@ const typedOutStrings = (string1, string2) => {
   return true;
 };
 
+// Time Complexity: O(a+b)
+// Space Complexity: O(1)
+
 module.exports = typedOutStrings;
