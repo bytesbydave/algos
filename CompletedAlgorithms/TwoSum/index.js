@@ -62,7 +62,7 @@ const twoSum = (arr, target) => {
   const hashMap = {};
   for (let i = 0; i < arr.length; i++) {
     const currentMapVal = hashMap[arr[i]];
-    if (currentMapVal) {
+    if (currentMapVal >= 0) { // or !== undefined
       return [currentMapVal, i];
     }
     const numberToFind = target - arr[i];
