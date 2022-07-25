@@ -38,3 +38,8 @@ test('"ab" should return true', () => {
   const str = 'ab';
   expect(almostAPalindrome(str)).toEqual(true);
 });
+
+test('"A man, a plan, a canal,: Panamax" should return true', () => {
+  const str = 'A man, a plan, a canal: Panamax';
+  expect(almostAPalindrome(str)).toEqual(true);
+});
