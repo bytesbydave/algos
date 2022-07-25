@@ -42,6 +42,45 @@
 // Hint: The size of the window will change based on new characters, and characters we've already seen before
 // Hint: Our seen characters hashmap keeps track of what characters we've seen and the index we saw them at
 
+// const longestSubstring = (str) => {
+//   let longest = 0;
+//   let left = 0;
+//   let right = 0;
+//   let long = 0;
+//   const charMap = {};
+//   while (right < str.length) {
+//     if (charMap[str[right]] >= 0) {
+//       charMap[str[left]] = -1;
+//       left++;
+//     } else {
+//       charMap[str[right]] = right;
+//       right++;
+//     }
+//     long = right - left;
+//     longest = Math.max(longest, long);
+//   }
+//   return longest;
+// };
+
+// const longestSubstring = (str) => {
+//   let longest = 0;
+//   let left = 0;
+//   let right = 0;
+//   let long = 0;
+//   const charMap = {};
+//   while (right < str.length) {
+//     if (charMap[str[right]] >= left) {
+//       left = charMap[str[right]] + 1;
+//     } else {
+//       charMap[str[right]] = right;
+//       right++;
+//     }
+//     long = right - left;
+//     longest = Math.max(longest, long);
+//   }
+//   return longest;
+// };
+
 const longestSubstring = (str) => {
   if (str.length <= 1) return str.length;
   const seenChars = {};
